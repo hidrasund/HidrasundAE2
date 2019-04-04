@@ -7,6 +7,7 @@ public class CrosshairRaycastScript : MonoBehaviour
     public float Range, ThrowSpeed; //Variables that are changeable in the editor
     private bool HoldingItem = false; //Bool that changes when the player picks up, or drops/throws, an object
     private GameObject HeldItem; //Temporarily holds information on an item when picked up
+    private GameObject Character; //Temporarily holds information on character that is interacted with
 
     //MAKE SURE THAT ANY INTERACT-ABLE OBJECTS HAVE THE CORRECT TAG -----> "Interactable"
 
@@ -37,6 +38,22 @@ public class CrosshairRaycastScript : MonoBehaviour
         Debug.Log(HoldingItem); 
         Debug.Log(HeldItem); 
         -----------Debug-------*/
+
+        //Jordon Comments from Here
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out Hit, Range))
+            {
+                if (Hit.transform.tag == "Tux")
+                {
+                    Character = Hit.transform.gameObject; //Checks to see what character was interacted with (Could make this an if statement for characters?)
+                    Tuxdialogue();//If Tux is interacted with
+                }
+            }
+        }
+
+
+
     }
 
     void ObjectPickUp()
@@ -63,6 +80,14 @@ public class CrosshairRaycastScript : MonoBehaviour
         HeldItem.transform.parent = null; //Resets the item's parental hierarchy
         HeldItem = null; //Clears the variable of the item's information
     }
+
+    void Tuxdialogue()
+    {
+        GameObject.FindGameObjectWithTag("Tux").GetComponent<TuxDialogue>().StageUp();
+        //This will advance the dialogue Re use this code and change the tag depending on character
+    }
+
+
 }
 
 //Written and commented by Alex Betson
