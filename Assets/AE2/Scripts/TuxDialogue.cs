@@ -8,7 +8,7 @@ public class TuxDialogue : MonoBehaviour
 
     public int Dialogue;
     public Text Stage; //Assign the text on the cavas to this in the editor
-
+   
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +48,15 @@ public class TuxDialogue : MonoBehaviour
     {
         if(Dialogue != 4)
         {
-            Dialogue =+ 1;
+            Dialogue = (Dialogue + 1);
         }
         
         if(Dialogue == 4)
         {
+            
             Dialogue = 0;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<GameManager>().NPC1true();
         }
 
 
