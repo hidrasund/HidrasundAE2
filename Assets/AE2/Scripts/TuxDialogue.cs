@@ -56,7 +56,7 @@ public class TuxDialogue : MonoBehaviour
             
             Dialogue = 0;
 
-            GameObject.FindGameObjectWithTag("Player").GetComponent<GameManager>().NPC1true();
+            GameObject.FindGameObjectWithTag("GameMAN").GetComponent<GameManager>().NPC1true();
         }
 
 

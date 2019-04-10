@@ -49,6 +49,11 @@ public class CrosshairRaycastScript : MonoBehaviour
                     Character = Hit.transform.gameObject; //Checks to see what character was interacted with (Could make this an if statement for characters?)
                     Tuxdialogue();//If Tux is interacted with
                 }
+                if (Hit.transform.tag == "Morty")
+                {
+                    Character = Hit.transform.gameObject; //Checks to see what character was interacted with (Could make this an if statement for characters?)
+                    Mortydialogue();//If Morty is interacted with
+                }
             }
         }
 
@@ -84,6 +89,13 @@ public class CrosshairRaycastScript : MonoBehaviour
     void Tuxdialogue()
     {
         GameObject.FindGameObjectWithTag("Tux").GetComponent<TuxDialogue>().StageUp();
+        //This will advance the dialogue Re use this code and change the tag depending on character
+    }
+
+
+    void Mortydialogue()
+    {
+        GameObject.FindGameObjectWithTag("Morty").GetComponent<TuxDialogue>().StageUp();
         //This will advance the dialogue Re use this code and change the tag depending on character
     }
 

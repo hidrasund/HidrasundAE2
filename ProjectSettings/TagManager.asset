@@ -7,6 +7,8 @@ TagManager:
   - Interactable
   - Material
   - Tux
+  - GameMAN
+  - Morty
   layers:
   - Default
   - TransparentFX
