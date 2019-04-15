@@ -54,6 +54,11 @@ public class CrosshairRaycastScript : MonoBehaviour
                     Character = Hit.transform.gameObject; //Checks to see what character was interacted with (Could make this an if statement for characters?)
                     Mortydialogue();//If Morty is interacted with
                 }
+                if (Hit.transform.tag == "Kitty")
+                {
+                    Character = Hit.transform.gameObject;
+                    Kitty(); // If Sphinx is interacted with
+                }
             }
         }
 
@@ -97,6 +102,12 @@ public class CrosshairRaycastScript : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Morty").GetComponent<MortMortText>().StageUp();
         //This will advance the dialogue Re use this code and change the tag depending on character
+    }
+
+    void Kitty()
+    {
+        GameObject.FindGameObjectWithTag("Kitty").GetComponent<KittyChallenge>().KittyUp();
+        //Interacts with the Sphinx.
     }
 
 
