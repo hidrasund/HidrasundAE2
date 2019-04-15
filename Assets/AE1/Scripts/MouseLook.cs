@@ -18,6 +18,9 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked; //Makes the cursor locked to the center of the screen
+        
+
         if (Axes == RotationAxes.MouseXAndY)
         {
             float RotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * SensitivityX;

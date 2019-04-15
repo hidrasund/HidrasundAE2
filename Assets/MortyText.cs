@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MortyText : MonoBehaviour
+public class MortText : MonoBehaviour
 {
     public int Dialogue;
     public Text Stage; //Assign the text on the cavas to this in the editor

@@ -95,7 +95,7 @@ public class CrosshairRaycastScript : MonoBehaviour
 
     void Mortydialogue()
     {
-        GameObject.FindGameObjectWithTag("Morty").GetComponent<TuxDialogue>().StageUp();
+        GameObject.FindGameObjectWithTag("Morty").GetComponent<MortMortText>().StageUp();
         //This will advance the dialogue Re use this code and change the tag depending on character
     }
 
