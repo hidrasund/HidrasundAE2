@@ -10,6 +10,7 @@ TagManager:
   - GameMAN
   - Morty
   - Kitty
+  - Spider
   layers:
   - Default
   - TransparentFX

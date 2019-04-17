@@ -59,6 +59,11 @@ public class CrosshairRaycastScript : MonoBehaviour
                     Character = Hit.transform.gameObject;
                     Kitty(); // If Sphinx is interacted with
                 }
+                if (Hit.transform.tag == "Spider")
+                {
+                    Character = Hit.transform.gameObject; //Spider event
+                    GameObject.FindGameObjectWithTag("Spider").GetComponent<SpiderEvent>().EventStart();
+                }
             }
         }
 

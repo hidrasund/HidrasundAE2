@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerHealth = 100;
-        PlayerSanity = 100;
+        PlayerHealth = 10;
+        PlayerSanity = 10;
         ouiouiBoard = false;
         CrystalBall = false;
 
@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Main menu");
         
     }
+
+    public void Damage()
+    {
+        PlayerHealth = (PlayerHealth - 1);
+    }
+
 
     public void NPC1true()
     {
