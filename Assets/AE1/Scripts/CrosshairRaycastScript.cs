@@ -64,6 +64,11 @@ public class CrosshairRaycastScript : MonoBehaviour
                     Character = Hit.transform.gameObject; //Spider event
                     GameObject.FindGameObjectWithTag("Spider").GetComponent<SpiderEvent>().EventStart();
                 }
+                if (Hit.transform.tag == "Box")
+                {
+                    Character = Hit.transform.gameObject; //Box Event
+                    GameObject.FindGameObjectWithTag("Box").GetComponent<BoxEvent>().boxopen();
+                }
             }
         }
 

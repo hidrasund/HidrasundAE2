@@ -11,6 +11,7 @@ TagManager:
   - Morty
   - Kitty
   - Spider
+  - Box
   layers:
   - Default
   - TransparentFX

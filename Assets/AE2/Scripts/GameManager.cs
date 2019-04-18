@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool ouiouiBoard;
     public bool CrystalBall;
 
-    //Scenario related Booleans
+    //Scenario related
     public bool Dynamite;
     public bool Scenario;
     public float ScenarioTimer;
@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public bool NPC1;
     public bool NPC2;
     public bool NPC3;
+
+    public bool BasementLoaded;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         NPC1 = false;
         NPC2 = false;
         NPC3 = false;
+        BasementLoaded = false;
 
         DontDestroyOnLoad(this.gameObject);
 
@@ -54,6 +57,12 @@ public class GameManager : MonoBehaviour
             Death();
         }
 
+
+        if((NPC1 == true) && (NPC2 == true) && (BasementLoaded == false))
+        {
+            LoadBasement();
+        }
+
     }
 
     public void Death() //Destroys the current GameManager so it does not create 2 when the game is started again and sends the players to the main menu.
@@ -63,12 +72,41 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void LoadBasement()
+    {
+        BasementLoaded = true;
+        SceneManager.LoadScene("Basement", LoadSceneMode.Additive);
+    }
+
+    //Health and Sanity Functions.
     public void Damage()
     {
         PlayerHealth = (PlayerHealth - 1);
     }
 
+    public void SanityDown()
+    {
+        PlayerSanity = (PlayerSanity - 1);
+    }
 
+
+    //Item Functions
+    public void DynamiteGET()
+    {
+        Dynamite = true;
+    }
+
+    public void OuijaBoardGET()
+    {
+        ouiouiBoard = true;
+    }
+
+    public void BallGET()
+    {
+        CrystalBall = true;
+    }
+
+    //NPC Functions
     public void NPC1true()
     {
         NPC1 = true;
@@ -83,5 +121,7 @@ public class GameManager : MonoBehaviour
     {
         NPC3 = true;
     }
+
+    
 
 }
