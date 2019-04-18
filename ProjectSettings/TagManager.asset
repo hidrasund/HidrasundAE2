@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Interactable
   - Material
+  - Tux
+  - GameMAN
+  - Morty
+  - Kitty
+  - Spider
+  - Box
+  - Door
   layers:
   - Default
   - TransparentFX
