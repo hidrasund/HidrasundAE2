@@ -69,10 +69,16 @@ public class CrosshairRaycastScript : MonoBehaviour
                     Character = Hit.transform.gameObject; //Box Event
                     GameObject.FindGameObjectWithTag("Box").GetComponent<BoxEvent>().boxopen();
                 }
-                if (Hit.transform.tag == "Door")
+                if (Hit.transform.tag == "Door") //Interacted with door
                 {
-                    Hit.transform.gameObject.SetActive(false);
+                    Hit.transform.gameObject.SetActive(false); //Sets door to dissapear
+                    if(GameObject.FindGameObjectWithTag("GameMAN").GetComponent<GameManager>().BasementLoaded == true)
+                    {
+                        //if the basement is loaded then the count of doors opened in basement goes up, this will be used to trigger the end scenario after all the doors are open
+                        GameObject.FindGameObjectWithTag("GameMAN").GetComponent<GameManager>().DoorCount();
+                    }
                 }
+
             }
         }
 

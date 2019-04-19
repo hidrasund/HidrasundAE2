@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99c9a6dffc6152a4cb58a9914a5cc74d
+guid: 316cc365a98810e48b7787eaaf9d068c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -21,7 +21,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material
-    second: {fileID: 2100000, guid: f2a99902710090a40a6d630f5fb1d3b0, type: 2}
+    second: {fileID: 2100000, guid: 31aa547e243f12540a7790d034593cd6, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

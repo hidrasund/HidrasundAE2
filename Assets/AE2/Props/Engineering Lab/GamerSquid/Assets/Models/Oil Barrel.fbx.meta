@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 53b1f77b5647461428c34dfc5bc3fc7f
+guid: 1a909fda5ed6dd7458fe5d2c62f91b53
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -25,17 +25,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: AirHole
-    second: {fileID: 2100000, guid: 891c3fa84e614e548a6e890bb040f6ae, type: 2}
+    second: {fileID: 2100000, guid: d8adade1e6bccf34d8461364bfbca9a6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Drum
-    second: {fileID: 2100000, guid: a4e55897aad50174c864784b2e63dcd4, type: 2}
+    second: {fileID: 2100000, guid: 36e864b65e492494fbf296e93aa31bd8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lid
-    second: {fileID: 2100000, guid: ccbc8db663daf2a4383d23d6393c294b, type: 2}
+    second: {fileID: 2100000, guid: a5b200c6f376e784f81b77349a09c6d2, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

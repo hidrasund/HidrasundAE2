@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour
     public bool NPC2;
     public bool NPC3;
 
+    //basement variables
     public bool BasementLoaded;
+
+    public int BasementDoors;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +40,13 @@ public class GameManager : MonoBehaviour
 
         Dynamite = false;
         Scenario = false;
-        ScenarioTimer = 360;
+        ScenarioTimer = 400;
 
         NPC1 = false;
         NPC2 = false;
         NPC3 = false;
         BasementLoaded = false;
+        BasementDoors = 0;
 
         DontDestroyOnLoad(this.gameObject);
 
@@ -61,6 +65,16 @@ public class GameManager : MonoBehaviour
         if((NPC1 == true) && (NPC2 == true) && (BasementLoaded == false))
         {
             LoadBasement();
+        }
+
+        if(Scenario == true)
+        {
+            ScenarioTimer -= Time.deltaTime;
+        }
+
+        if ((BasementDoors == 6) && (Scenario = false))
+        {
+            ScenarioStart();
         }
 
     }
@@ -89,6 +103,11 @@ public class GameManager : MonoBehaviour
         PlayerSanity = (PlayerSanity - 1);
     }
 
+    //scenario start function
+    public void ScenarioStart()
+    {
+        Scenario = true;
+    }
 
     //Item Functions
     public void DynamiteGET()
@@ -122,6 +141,29 @@ public class GameManager : MonoBehaviour
         NPC3 = true;
     }
 
+    //Basement Functions
+    public void DoorCount()
+    {
+        BasementDoors = (BasementDoors + 1);
+    }
     
+    //Scenario Activated
+
+    public void ScenarioActive()
+    {
+        //Teleport Player to a room
+        GameObject.FindGameObjectWithTag("Player").transform.position = new Vector3(-1, 1, 2);
+
+        //Teleport NPC's to a room
+        GameObject.FindGameObjectWithTag("Morty").transform.position = new Vector3(-5, 1, 12);
+        GameObject.FindGameObjectWithTag("Tux").transform.position = new Vector3(0, 0, 0);
+        //Activate Bombs
+        GameObject.FindGameObjectWithTag("Bomb").SetActive(true); //sets all the bombs to be active
+        //Display Timer
+        //Set game over if timer runs out
+        //Set win if player interacts with dynamite on the door
+
+
+    }
 
 }

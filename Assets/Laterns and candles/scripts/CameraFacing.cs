@@ -7,7 +7,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CameraFacing : MonoBehaviour
+public class CameraFace : MonoBehaviour
 {
 	public Camera cameraToLookAt;
 
