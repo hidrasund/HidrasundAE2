@@ -11,7 +11,7 @@ public class KittyChallenge : MonoBehaviour
     public Text Answers;
     public bool Correct;
     public Text hint;
-
+    public bool incorrect;
     float timer; //timer until sphinx dissapears
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class KittyChallenge : MonoBehaviour
         KittyState = 0;
         Interacted = false;
         Correct = false;
-
+        incorrect = false;
         timer = 3;
     }
 
@@ -72,9 +72,14 @@ public class KittyChallenge : MonoBehaviour
         {
             KittySpeak.text = ("You Fool! It's the letter M you dunce. Face the punishment of your ignorance!");
             timer -= Time.deltaTime;
-            //Sanity - 1;
+            
             Answers.text = (" ");
             hint.text = ("You Lose -1 Sanity"); //make Answers and Hint dissapear.
+
+            if (incorrect == false)
+            {
+                Lose(); // Reduces player sanity.
+            }
         }
 
         if (timer <= 0)
@@ -97,5 +102,12 @@ public class KittyChallenge : MonoBehaviour
         }
 
 
+    }
+
+    public void Lose()
+    {
+        
+        GameObject.FindGameObjectWithTag("GameMAN").GetComponent<GameManager>().SanityDown(); //Reduces sanity by 1.
+        incorrect = true;
     }
 }
