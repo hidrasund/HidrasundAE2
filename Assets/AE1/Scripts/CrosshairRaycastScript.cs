@@ -7,6 +7,7 @@ public class CrosshairRaycastScript : MonoBehaviour
     public float Range, ThrowSpeed; //Variables that are changeable in the editor
     private bool HoldingItem = false; //Bool that changes when the player picks up, or drops/throws, an object
     private GameObject HeldItem; //Temporarily holds information on an item when picked up
+    private GameObject Character; //Temporarily holds information on character that is interacted with
 
     //MAKE SURE THAT ANY INTERACT-ABLE OBJECTS HAVE THE CORRECT TAG -----> "Interactable"
 
@@ -37,6 +38,52 @@ public class CrosshairRaycastScript : MonoBehaviour
         Debug.Log(HoldingItem); 
         Debug.Log(HeldItem); 
         -----------Debug-------*/
+
+        //Jordon Comments from Here
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out Hit, Range))
+            {
+                if (Hit.transform.tag == "Tux")
+                {
+                    Character = Hit.transform.gameObject; //Checks to see what character was interacted with (Could make this an if statement for characters?)
+                    Tuxdialogue();//If Tux is interacted with
+                }
+                if (Hit.transform.tag == "Morty")
+                {
+                    Character = Hit.transform.gameObject; //Checks to see what character was interacted with (Could make this an if statement for characters?)
+                    Mortydialogue();//If Morty is interacted with
+                }
+                if (Hit.transform.tag == "Kitty")
+                {
+                    Character = Hit.transform.gameObject;
+                    Kitty(); // If Sphinx is interacted with
+                }
+                if (Hit.transform.tag == "Spider")
+                {
+                    Character = Hit.transform.gameObject; //Spider event
+                    GameObject.FindGameObjectWithTag("Spider").GetComponent<SpiderEvent>().EventStart();
+                }
+                if (Hit.transform.tag == "Box")
+                {
+                    Character = Hit.transform.gameObject; //Box Event
+                    GameObject.FindGameObjectWithTag("Box").GetComponent<BoxEvent>().boxopen();
+                }
+                if (Hit.transform.tag == "Door") //Interacted with door
+                {
+                    Hit.transform.gameObject.SetActive(false); //Sets door to dissapear
+                    if(GameObject.FindGameObjectWithTag("GameMAN").GetComponent<GameManager>().BasementLoaded == true)
+                    {
+                        //if the basement is loaded then the count of doors opened in basement goes up, this will be used to trigger the end scenario after all the doors are open
+                        GameObject.FindGameObjectWithTag("GameMAN").GetComponent<GameManager>().DoorCount();
+                    }
+                }
+
+            }
+        }
+
+
+
     }
 
     void ObjectPickUp()
@@ -63,6 +110,27 @@ public class CrosshairRaycastScript : MonoBehaviour
         HeldItem.transform.parent = null; //Resets the item's parental hierarchy
         HeldItem = null; //Clears the variable of the item's information
     }
+
+    void Tuxdialogue()
+    {
+        GameObject.FindGameObjectWithTag("Tux").GetComponent<TuxDialogue>().StageUp();
+        //This will advance the dialogue Re use this code and change the tag depending on character
+    }
+
+
+    void Mortydialogue()
+    {
+        GameObject.FindGameObjectWithTag("Morty").GetComponent<MortMortText>().StageUp();
+        //This will advance the dialogue Re use this code and change the tag depending on character
+    }
+
+    void Kitty()
+    {
+        GameObject.FindGameObjectWithTag("Kitty").GetComponent<KittyChallenge>().KittyUp();
+        //Interacts with the Sphinx.
+    }
+
+
 }
 
 //Written and commented by Alex Betson

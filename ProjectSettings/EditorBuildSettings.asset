@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AE1/Scenes/PeachBoxing.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/AE2/Scenes/Basement.unity
+    guid: 4127e901d9ae2a04084fae34bf23706e
   m_configObjects: {}
